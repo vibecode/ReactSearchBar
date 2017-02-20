@@ -16,7 +16,7 @@ class SearchBar extends Component {
 
   onQueryChange(e) {
     e.preventDefault();
-    const query = e.target.value.toLowerCase().trim();
+    const query = e.target.value;
 
     this.setState({
       query
@@ -26,7 +26,7 @@ class SearchBar extends Component {
     this.setState({
       query,
       data: data.filter(item => {
-        return query && item.toLowerCase().startsWith(query);
+        return query && item.toLowerCase().startsWith(query.toLowerCase());
       })
     });
   }
