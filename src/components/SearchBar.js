@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import List from './List';
 import ListItem from './ListItem';
 import Input from './Input';
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor(props) {
