@@ -4,5 +4,13 @@
   width: 60%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.search-title {
+  font-weight: 300;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }

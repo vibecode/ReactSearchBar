@@ -38,7 +38,7 @@ class SearchBar extends Component {
         <div className="search-container">
           <Input
               type={'text'}
-              placeholder="Start typing"
+              placeholder="e.g. Ember"
               value={query}
               onChange={this.onQueryChange}
           />

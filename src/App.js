@@ -6,6 +6,7 @@ class App extends Component {
   render() {
     return (
         <div className="container">
+          <h1 className="search-title">Search for framework</h1>
           <SearchBar />
         </div>
     );
