@@ -12,23 +12,28 @@ class SearchBar extends Component {
       data: []
     };
     this.onQueryChange = this.onQueryChange.bind(this);
+    this.onResultClick = this.onResultClick.bind(this);
   }
 
-  onQueryChange(e) {
-    e.preventDefault();
-    const query = e.target.value;
-
+  onQueryChange(query) {
     this.setState({
       query
     });
 
     const { data } = this.props;
+
     this.setState({
       query,
       data: data.filter(item => {
         return query && item.toLowerCase().startsWith(query.toLowerCase());
       })
     });
+  }
+
+  onResultClick() {
+    this.setState({
+      query: ''
+    })
   }
 
   render() {
@@ -40,10 +45,10 @@ class SearchBar extends Component {
               type={'text'}
               placeholder="e.g. Ember"
               value={query}
-              onChange={this.onQueryChange}
+              onQueryChange={this.onQueryChange}
           />
           <List>
-            {data.map(item => <ListItem key={item} href="#">{item}</ListItem>)}
+            {data.map(item => <ListItem key={item} href="#" onClick={this.onResultClick}>{item}</ListItem>)}
           </List>
         </div>
     )
