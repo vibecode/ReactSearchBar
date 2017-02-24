@@ -12,7 +12,6 @@ class SearchBar extends Component {
       data: []
     };
     this.onQueryChange = this.onQueryChange.bind(this);
-    this.onResultClick = this.onResultClick.bind(this);
   }
 
   onQueryChange(query) {
@@ -30,9 +29,10 @@ class SearchBar extends Component {
     });
   }
 
-  onResultClick() {
+  onResultClick(item) {
     this.setState({
-      query: ''
+      query: item,
+      data: []
     })
   }
 
@@ -48,7 +48,15 @@ class SearchBar extends Component {
               onQueryChange={this.onQueryChange}
           />
           <List>
-            {data.map(item => <ListItem key={item} href="#" onClick={this.onResultClick}>{item}</ListItem>)}
+            {data.map(item =>
+                <ListItem
+                    key={item}
+                    href="#"
+                    onClick={this.onResultClick.bind(this, item)}
+                >
+                  {item}
+                </ListItem>
+            )}
           </List>
         </div>
     )
